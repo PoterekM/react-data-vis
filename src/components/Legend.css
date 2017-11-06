@@ -1,0 +1,22 @@
+.orange {
+  height: 20px;
+  width: 20px;
+  position: relative;
+
+  left:25%;
+  background-color: #FFA500;
+}
+
+.first {
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
+  background-color: ##007A7C;
+}
+
+.second {
+  height: 20px;
+  width: 20px;
+  margin-top: 15px;
+  background-color: ##00FFFF;
+}
