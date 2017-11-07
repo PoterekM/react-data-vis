@@ -6,6 +6,9 @@ import {XYPlot, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, VerticalBa
 import Legend from './components/Legend';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     const data = [
       {x: 1, y: 56},
@@ -30,7 +33,10 @@ class App extends Component {
       {x: 4, y: 94},
       {x: 5, y: 98},
       {x: 6, y: 91}
-    ]
+    ];
+
+
+
     return (
       <div className="App">
         <div className="App-header">
@@ -43,8 +49,43 @@ class App extends Component {
             <HorizontalGridLines />
             <XAxis tickTotal={6} tickFormat={x => `Quiz  ${x}`} tickLabelAngle={-38} />
             <YAxis tickTotal={10} tickFormat={y => `${y}%`} />
-            <VerticalBarSeries data={data} color="#007A7C"/>
-            <VerticalBarSeries data={second} color="#00FFFF"/>
+            <VerticalBarSeries data={data} color="#007A7C"   onSeriesClick={(event)=>{
+              console.log("henlo1")
+              }}/>
+            <VerticalBarSeries ref="quizBar" data={second}  color="#00FFFF"
+              onNearestX={(datapoint, event)=>{
+                  console.log("whoa, data", datapoint);
+              }}
+              // onSeriesClick={(datapoint, event)=>{
+              //     console.log("whoa, data", datapoint);
+              // }}
+              // onSeriesClick={(event)=>{
+              //   // var quizBar;
+              //   // var val = this.refs.quizBar;
+              //   // console.log(quizBar);
+              //   // console.log(val);
+              //   let x;
+              //   let y;
+              //   let sec;
+              //   for (sec of second) {
+              //     console.log(sec);
+              //     console.log(second);
+              //     console.log(second.length);
+              //     console.log(sec);
+              //     console.log(sec.x);
+              //     console.log(this.sec.x);
+              //     console.log(sec.y);
+              //   }
+              //   // let i;
+              //   // const individual = second.map(x => x.y);
+              //   // for (i = 0; i < individual.length; i++) {
+              //   //   // console.log(individual);
+              //   //   console.log(i, individual);
+              //   }
+                // // console.log(individual);
+                // // console.log(second[0].y);
+              // }
+              />
             <LineMarkSeries data={avg} color="orange" />
           </XYPlot>
         </div>
