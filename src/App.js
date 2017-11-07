@@ -56,6 +56,9 @@ class App extends Component {
               onNearestX={(datapoint, event)=>{
                   console.log("whoa, data", datapoint);
               }}
+              onValueClick={(datapoint, event)=>{
+                console.log("i'm going to route you");
+              }}
               // onSeriesClick={(datapoint, event)=>{
               //     console.log("whoa, data", datapoint);
               // }}
